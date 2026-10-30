@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Experience Letter Generator</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ===== HEADER ===== -->
+  <header class="app-header">
+    <h1>📄 Experience Letter Generator</h1>
+    <p>Apni details bharein, letterhead & photo upload karein, aur print/PDF download karein.</p>
+  </header>
+
+  <!-- ===== MAIN LAYOUT ===== -->
+  <main class="app-container">
+
+    <!-- ===== LEFT: FORM PANEL ===== -->
+    <section class="form-panel">
+      <h2>Letter Details</h2>
+
+      <form id="letterForm">
+
+        <!-- Company Info -->
+        <fieldset>
+          <legend>🏢 Company Details</legend>
+
+          <label>Company Name
+            <input type="text" id="companyName" placeholder="e.g., ABC Pvt. Ltd." />
+          </label>
+
+          <label>Company Address
+            <textarea id="companyAddress" rows="2" placeholder="Office address"></textarea>
+          </label>
+
+          <label>Phone
+            <input type="text" id="companyPhone" placeholder="+91 XXXXX XXXXX" />
+          </label>
+
+          <label>Email
+            <input type="email" id="companyEmail" placeholder="info@company.com" />
+          </label>
+
+          <label>Website (optional)
+            <input type="text" id="companyWebsite" placeholder="www.company.com" />
+          </label>
+        </fieldset>
+
+        <!-- Letterhead Upload -->
+        <fieldset>
+          <legend>🖼️ Letterhead & Photo Upload</legend>
+
+          <label>Letterhead Image (top banner)
+            <input type="file" id="letterheadUpload" accept="image/*" />
+          </label>
+
+          <label>Employee Photo (optional)
+            <input type="file" id="photoUpload" accept="image/*" />
+          </label>
+
+          <button type="button" id="clearImagesBtn" class="btn-secondary">
+            Remove Uploaded Images
+          </button>
+        </fieldset>
+
+        <!-- Employee Info -->
+        <fieldset>
+          <legend>👤 Employee Details</legend>
+
+          <label>Employee Full Name
+            <input type="text" id="employeeName" placeholder="e.g., Yash" />
+          </label>
+
+          <label>Designation
+            <input type="text" id="designation" placeholder="e.g., Assistant Accountant" />
+          </label>
+
+          <label>Joining Date
+            <input type="date" id="joiningDate" />
+          </label>
+
+          <label>Last Working Date
+            <input type="date" id="lastDate" />
+          </label>
+        </fieldset>
+
+        <!-- Responsibilities -->
+        <fieldset>
+          <legend>📋 Key Responsibilities</legend>
+
+          <div id="responsibilityList">
+            <!-- dynamic inputs will appear here -->
+          </div>
+
+          <button type="button" id="addResponsibilityBtn" class="btn-secondary">
+            + Add Responsibility
+          </button>
+        </fieldset>
+
+        <!-- Performance -->
+        <fieldset>
+          <legend>⭐ Performance & Conduct</legend>
+
+          <label>Performance
+            <select id="performance">
+              <option value="">-- Select --</option>
+              <option value="Good">Good</option>
+              <option value="Satisfactory">Satisfactory</option>
+              <option value="Average">Average</option>
+              <option value="Excellent">Excellent</option>
+            </select>
+          </label>
+
+          <label>Conduct Line (optional)
+            <input type="text" id="conductLine" placeholder="e.g., behaviour with team was cooperative" />
+          </label>
+        </fieldset>
+
+        <!-- Signatory -->
+        <fieldset>
+          <legend>✍️ Signatory Details</legend>
+
+          <label>Signatory Name
+            <input type="text" id="signatoryName" placeholder="e.g., HR Manager Name" />
+          </label>
+
+          <label>Signatory Designation
+            <input type="text" id="signatoryDesignation" placeholder="e.g., HR Manager / Director" />
+          </label>
+
+          <label>Letter Date
+            <input type="date" id="letterDate" />
+          </label>
+        </fieldset>
+
+        <!-- Actions -->
+        <div class="action-buttons">
+          <button type="button" id="printBtn" class="btn-primary">🖨️ Print / Save PDF</button>
+          <button type="reset" id="resetBtn" class="btn-secondary">🔄 Reset Form</button>
+        </div>
+      </form>
+    </section>
+
+    <!-- ===== RIGHT: LIVE PREVIEW ===== -->
+    <section class="preview-panel">
+      <h2>Live Preview</h2>
+
+      <div id="letterPreview" class="letter-preview">
+
+        <!-- Letterhead image -->
+        <div class="preview-letterhead" id="previewLetterhead">
+          <!-- image inserted via JS -->
+        </div>
+
+        <!-- Company header (text fallback) -->
+        <div class="preview-company-header">
+          <h3 id="pvCompanyName">[Company Name]</h3>
+          <p id="pvCompanyAddress">[Company Address]</p>
+          <p id="pvCompanyContact">[Phone] | [Email] | [Website]</p>
+        </div>
+
+        <hr />
+
+        <p class="preview-date"><strong>Date:</strong> <span id="pvDate">[DD/MM/YYYY]</span></p>
+
+        <p class="preview-subject"><strong>TO WHOM IT MAY CONCERN</strong></p>
+        <p class="preview-subject"><strong>Subject: Experience Certificate</strong></p>
+
+        <hr />
+
+        <!-- Employee photo (optional) -->
+        <div class="preview-photo" id="previewPhoto">
+          <!-- image inserted via JS -->
+        </div>
+
+        <p class="preview-body">
+          This is to certify that <strong>Mr./Ms. <span id="pvEmployeeName">[Employee Name]</span></strong>
+          has worked with <strong><span id="pvCompanyNameBody">[Company Name]</span></strong>
+          as a <strong><span id="pvDesignation">[Designation]</span></strong>
+          from <strong><span id="pvJoiningDate">[Joining Date]</span></strong>
+          to <strong><span id="pvLastDate">[Last Working Date]</span></strong>.
+        </p>
+
+        <h4>KEY RESPONSIBILITIES:</h4>
+        <ol id="pvResponsibilities">
+          <li>[Responsibility 1]</li>
+        </ol>
+
+        <h4>PERFORMANCE & CONDUCT:</h4>
+        <p class="preview-body" id="pvPerformance">
+          [Performance line]
+        </p>
+
+        <p class="preview-body">We wish them all the best for their future endeavours.</p>
+
+        <div class="preview-signature">
+          <p>Sincerely,</p>
+          <br /><br />
+          <p><strong id="pvSignatoryName">[Signatory Name]</strong></p>
+          <p id="pvSignatoryDesignation">[Designation]</p>
+          <p id="pvSignatoryCompany">[Company Name]</p>
+          <p class="preview-stamp">[Company Stamp]</p>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
