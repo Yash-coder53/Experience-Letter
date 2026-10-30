@@ -1,0 +1,302 @@
+/* ===== RESET & BASE ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Arial, sans-serif;
+  background: #f0f2f5;
+  color: #222;
+  line-height: 1.6;
+}
+
+/* ===== HEADER ===== */
+.app-header {
+  background: #1f3a5f;
+  color: #fff;
+  padding: 20px 30px;
+  text-align: center;
+}
+
+.app-header h1 {
+  font-size: 24px;
+  margin-bottom: 6px;
+}
+
+.app-header p {
+  font-size: 14px;
+  opacity: 0.85;
+}
+
+/* ===== MAIN LAYOUT ===== */
+.app-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  padding: 24px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* ===== FORM PANEL ===== */
+.form-panel {
+  background: #fff;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.form-panel h2 {
+  margin-bottom: 14px;
+  font-size: 18px;
+  color: #1f3a5f;
+}
+
+fieldset {
+  border: 1px solid #d0d7e2;
+  border-radius: 8px;
+  padding: 14px;
+  margin-bottom: 16px;
+}
+
+legend {
+  font-weight: 600;
+  font-size: 14px;
+  padding: 0 6px;
+  color: #1f3a5f;
+}
+
+label {
+  display: block;
+  font-size: 13px;
+  margin-bottom: 10px;
+  font-weight: 500;
+  color: #333;
+}
+
+input,
+textarea,
+select {
+  width: 100%;
+  padding: 8px 10px;
+  margin-top: 4px;
+  border: 1px solid #c4cdd9;
+  border-radius: 6px;
+  font-size: 13px;
+  font-family: inherit;
+  background: #fafbfc;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+  border-color: #1f3a5f;
+  background: #fff;
+}
+
+textarea {
+  resize: vertical;
+}
+
+/* Buttons */
+.btn-primary,
+.btn-secondary {
+  padding: 10px 16px;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 8px;
+}
+
+.btn-primary {
+  background: #1f3a5f;
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background: #2a4f80;
+}
+
+.btn-secondary {
+  background: #e4e9f0;
+  color: #1f3a5f;
+}
+
+.btn-secondary:hover {
+  background: #d0d7e2;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.action-buttons button {
+  flex: 1;
+}
+
+/* Dynamic responsibility rows */
+.resp-row {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.resp-row input {
+  flex: 1;
+}
+
+.resp-row button {
+  padding: 0 12px;
+  background: #fde8e8;
+  color: #c0392b;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.resp-row button:hover {
+  background: #f9caca;
+}
+
+/* ===== PREVIEW PANEL ===== */
+.preview-panel {
+  background: #fff;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.preview-panel h2 {
+  margin-bottom: 14px;
+  font-size: 18px;
+  color: #1f3a5f;
+}
+
+.letter-preview {
+  background: #fff;
+  border: 1px solid #d0d7e2;
+  padding: 28px 32px;
+  font-size: 13.5px;
+  line-height: 1.7;
+  min-height: 600px;
+}
+
+.preview-letterhead img {
+  width: 100%;
+  max-height: 120px;
+  object-fit: contain;
+  margin-bottom: 10px;
+}
+
+.preview-company-header h3 {
+  font-size: 18px;
+  color: #1f3a5f;
+  margin-bottom: 2px;
+}
+
+.preview-company-header p {
+  font-size: 12px;
+  color: #555;
+}
+
+.preview-photo img {
+  width: 90px;
+  height: 110px;
+  object-fit: cover;
+  border: 1px solid #ccc;
+  float: right;
+  margin-left: 12px;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid #ccc;
+  margin: 12px 0;
+}
+
+.preview-date {
+  margin: 8px 0;
+}
+
+.preview-subject {
+  margin: 2px 0;
+}
+
+.preview-body {
+  margin: 10px 0;
+  text-align: justify;
+}
+
+#pvResponsibilities {
+  margin: 8px 0 12px 20px;
+}
+
+#pvResponsibilities li {
+  margin-bottom: 4px;
+}
+
+.preview-signature {
+  margin-top: 40px;
+  font-size: 13px;
+}
+
+.preview-stamp {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 8px 14px;
+  border: 1px dashed #aaa;
+  color: #999;
+  font-size: 11px;
+  border-radius: 4px;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 900px) {
+  .app-container {
+    grid-template-columns: 1fr;
+  }
+
+  .form-panel,
+  .preview-panel {
+    max-height: none;
+  }
+}
+
+/* ===== PRINT STYLES ===== */
+@media print {
+  body * {
+    visibility: hidden;
+  }
+
+  .letter-preview,
+  .letter-preview * {
+    visibility: visible;
+  }
+
+  .letter-preview {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    border: none;
+    padding: 20px 30px;
+    font-size: 13px;
+  }
+
+  .preview-stamp {
+    color: #000;
+    border-color: #000;
+  }
+}
